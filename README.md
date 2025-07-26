@@ -1,5 +1,8 @@
 # E-Commerce Microservices Application
 
+<img width="957" height="505" alt="image" src="https://github.com/user-attachments/assets/009a79cd-02d2-417e-be3c-83b15779bc19" />
+
+
 A full-stack MERN e-commerce application built with microservices architecture, featuring 4 separate Node.js backend services and a React frontend.
 
 ## 🏗️ Architecture Overview
