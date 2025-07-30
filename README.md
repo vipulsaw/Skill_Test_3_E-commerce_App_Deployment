@@ -105,23 +105,28 @@ git clone <repository-url>
 cd ecommerce-microservices
 ```
 
-2. **Install dependencies for each service**
+2. **Docker Build and Push**
 ```bash
 
 # Install User Service dependencies
-cd backend/user-service && npm install
+docker build -t vipulsaw123/user-service:latest .
+docker push vipulsaw123/user-service:latest 
 
 # Install Product Service dependencies
-cd ../product-service && npm install
+docker build -t vipulsaw123/product-service:latest .
+docker push vipulsaw123/product-service:latest 
 
 # Install Cart Service dependencies
-cd ../cart-service && npm install
+docker build -t vipulsaw123/cart-service:latest .
+docker push vipulsaw123/cart-service:latest 
 
 # Install Order Service dependencies
-cd ../order-service && npm install
+docker build -t vipulsaw123/order-servic:latest .
+docker push vipulsaw123/order-servic:latest 
 
 # Install Frontend dependencies
-cd ../../frontend && npm install
+docker build -t vipulsaw123/frontend:latest .
+docker push vipulsaw123/frontend:latest 
 ```
 
 3. **Set up environment variables**
@@ -172,35 +177,35 @@ REACT_APP_ORDER_SERVICE_URL=http://localhost:3004
 
 Terminal 1 - User Service:
 ```bash
-cd backend/user-service && npm start
+docker run -d --name user-service -p 3001:3001 vipulsaw123/user-service:latest
 ```
 
 Terminal 2 - Product Service:
 ```bash
-cd backend/product-service && npm start
+docker run -d --name product-service -p 3002:3002 vipulsaw123/product-service:latest
 ```
 
 Terminal 3 - Cart Service:
 ```bash
-cd backend/cart-service && npm start
+docker run -d --name cart-service -p 3003:3003 vipulsaw123/cart-service:latest
 ```
 
 Terminal 4 - Order Service:
 ```bash
-cd backend/order-service && npm start
+docker run -d --name order-service -p 3004:3004 vipulsaw123/order-servic:latest
 ```
 
 Terminal 5 - Frontend:
 ```bash
-cd frontend && npm start
+docker run -d --name frontend -p 3000:3000 vipulsaw123/frontend:latest
 ```
 
 The application will be available at:
-- Frontend: http://localhost:3000
-- User Service: http://localhost:3001
-- Product Service: http://localhost:3002
-- Cart Service: http://localhost:3003
-- Order Service: http://localhost:3004
+- Frontend: http://3.89.55.60:3000
+- User Service: http://3.89.55.60:3001
+- Product Service: http://3.89.55.60:3002
+- Cart Service: http://3.89.55.60:3003
+- Order Service: http://3.89.55.60:3004
 
 ## 🎯 Features
 
@@ -265,6 +270,12 @@ ecommerce-microservices/
 │   └── package.json
 ├── package.json
 └── README.md
+└── terraform
+    ├── main.tf
+    ├── output.tf
+    ├── user-data.sh
+    ├── variable.tf
+       
 ```
 
 ## 🔧 API Testing
